@@ -1,0 +1,107 @@
+{
+  "name": "hlf-bityoga",
+  "version": "1.0.0",
+  "client": {
+    "organization": "hlf",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "100"
+        }
+      }
+    },
+    "credentialStore": {
+      "path": "./walletX",
+      "cryptoStore": {
+        "path": "./mspX"
+      }
+    }
+  },
+  "channels": {
+    "appchannel": {
+      "orderers": [
+        "orderer"
+      ],
+      "peers": {
+        "peer2": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true,
+          "discover": true
+        },
+        "peer1": {
+          "endorsingPeer": false,
+          "chaincodeQuery": false,
+          "ledgerQuery": true,
+          "eventSource": false,
+          "discover": true
+        }
+      }
+    }
+  },
+  "organizations": {
+    "hlf": {
+      "mspid": "hlfMSP",
+      "cryptoPath": "./mspX",
+      "peers": [
+        "peer2",
+        "peer1"
+      ],
+      "certificateAuthorities": [
+        "orgca",
+        "tlsca"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer": {
+      "url": "grpcs://188.166.104.30:8053",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer",
+        "hostnameOverride": "orderer"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICADCCAaegAwIBAgIUBZf0dGUCwePyRZQmz43izmWH9r4wCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0yMTA0MDgwOTIwMDBaFw0zNjA0MDQwOTIwMDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAARkzzGqLuiTMJ0FwuBzrbsVOUNCh+vQWCavfBar9Ha0fw9ROgLH2LxC\n+hhivvzEYBClpk6J0g40FpcSeX5UrmEao0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQU6+0HgWEImFy4S0YVtFGTIN5/HsQw\nCgYIKoZIzj0EAwIDRwAwRAIgb7/+pH8F0t6zRaR1phL3RCjwWxdP+kDuCkb1CTCp\n2V0CIHciiJpfYv9LVjhD15WxEHlIPOpHGIVpDloBLzT+AQrf\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "peers": {
+    "peer2": {
+      "url": "grpcs://188.166.104.30:8055",
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICADCCAaegAwIBAgIUBZf0dGUCwePyRZQmz43izmWH9r4wCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0yMTA0MDgwOTIwMDBaFw0zNjA0MDQwOTIwMDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAARkzzGqLuiTMJ0FwuBzrbsVOUNCh+vQWCavfBar9Ha0fw9ROgLH2LxC\n+hhivvzEYBClpk6J0g40FpcSeX5UrmEao0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQU6+0HgWEImFy4S0YVtFGTIN5/HsQw\nCgYIKoZIzj0EAwIDRwAwRAIgb7/+pH8F0t6zRaR1phL3RCjwWxdP+kDuCkb1CTCp\n2V0CIHciiJpfYv9LVjhD15WxEHlIPOpHGIVpDloBLzT+AQrf\n-----END CERTIFICATE-----"
+      },
+      "grpcOptions": {
+        "ssl-target-name-override": "peer2",
+        "hostnameOverride": "peer2"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "orgca": {
+      "url": "https://188.166.104.30:8052",
+      "caName": "orgca",
+      "tlsCACerts": {
+        "pem": [
+          ""
+        ]
+      },
+      "httpOptions": {
+        "verify": false
+      }
+    },
+    "tlsca": {
+      "url": "https://188.166.104.30:8081",
+      "caName": "tlsca",
+      "tlsCACerts": {
+        "pem": [
+          ""
+        ]
+      },
+      "httpOptions": {
+        "verify": false
+      }
+    }
+  }
+}
