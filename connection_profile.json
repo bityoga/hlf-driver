@@ -1,0 +1,85 @@
+{
+  "name": "SampleOrg Network",
+  "version": "1.0.0",
+  "client": {
+    "organization": "SampleOrg",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "100"
+        }
+      }
+    },
+    "credentialStore": {
+      "path": "./walletX",
+      "cryptoStore": {
+        "path": "./mspX"
+      }
+    }
+  },
+  "channels": {
+    "myc": {
+      "orderers": [
+        "orderer-dev"
+      ],
+      "peers": {
+        "peer-dev": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        }
+      }
+    }
+  },
+  "organizations": {
+    "SampleOrg": {
+      "mspid": "SampleOrg",
+      "cryptoPath": "./mspX",
+      "peers": [
+        "peer-dev"
+      ],
+      "certificateAuthorities": [
+        "ca-dev"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer-dev": {
+      "url": "grpc://localhost:7050",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer",
+        "hostnameOverride": "orderer"
+      },
+      "tlsCACerts": {
+        "pem": ""
+      }
+    }
+  },
+  "peers": {
+    "peer-dev": {
+      "url": "grpc://localhost:7051",
+      "tlsCACerts": {
+        "pem": ""
+      },
+      "grpcOptions": {
+        "ssl-target-name-override": "peer",
+        "hostnameOverride": "peer"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca-dev": {
+      "url": "http://localhost:7054",
+      "caName": "",
+      "tlsCACerts": {
+        "pem": [
+          ""
+        ]
+      },
+      "httpOptions": {
+        "verify": false
+      }
+    }
+  }
+}

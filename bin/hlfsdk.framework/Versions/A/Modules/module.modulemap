@@ -1,0 +1,8 @@
+framework module "Hlfsdk" {
+	header "ref.h"
+    header "Hlfsdk.objc.h"
+    header "Universe.objc.h"
+    header "Hlfsdk.h"
+
+    export *
+}
