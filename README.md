@@ -1,6 +1,6 @@
 # Hyperledger Fabric Golang sdk driver for [react-native-hlf-wrapper](https://github.com/bityoga/react-native-hlf-wrapper)
 A project to generate the required native modules for hyperledger fabric go sdk to be used as a react native module.
-#Dependencies
+# Dependencies
 Make sure ```golang`` installed and ```GO_PATH``` is set
 
 Run the following in the terminal to get the required dependencies
